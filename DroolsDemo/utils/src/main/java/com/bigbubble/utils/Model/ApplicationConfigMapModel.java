@@ -1,10 +1,13 @@
 package com.bigbubble.utils.Model;
 
 import java.util.List;
-
+/*
+   应用配置映射模型
+ */
 public class ApplicationConfigMapModel implements IConfigMapModel {
     private String name;
     private String tableId;
+    private String appId;
     private List<ApplicationColumn> applicationColumns;
 
     public String getName() {
@@ -35,9 +38,19 @@ public class ApplicationConfigMapModel implements IConfigMapModel {
         return appId;
     }
 
+    @Override
+    public String toString() {
+        return "ApplicationConfigMapModel{" +
+                "name='" + name + '\'' +
+                ", tableId='" + tableId + '\'' +
+                ", appId='" + appId + '\'' +
+                ", applicationColumns=" + applicationColumns +
+                '}';
+    }
+
     public void setAppId(String appId) {
         this.appId = appId;
     }
 
-    private String appId;
+
 }

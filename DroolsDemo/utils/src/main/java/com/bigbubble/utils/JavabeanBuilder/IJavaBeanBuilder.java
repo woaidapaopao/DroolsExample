@@ -9,7 +9,7 @@ public interface IJavaBeanBuilder<T extends IConfigMapModel> {
 
     public T getConfigMapModel();
 
-    public void generateJavabeanCode(T configMapModel,String targetPath);
+//    public void generateJavabeanCode(T configMapModel,String groupId,String targetPath);
 
 
 }

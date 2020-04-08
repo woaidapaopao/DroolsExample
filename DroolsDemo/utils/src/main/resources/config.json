@@ -1,0 +1,16 @@
+{
+  "name":"Person",
+  "tableId": "123455",
+  "appId": "bda",
+  "projectName": "TestProject",
+  "applicationColumns": [
+    {
+      "name": "dapaopao",
+      "type": "String"
+    },
+    {
+      "name": "age",
+      "type": "int"
+    }
+  ]
+}

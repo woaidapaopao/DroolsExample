@@ -1,43 +1,23 @@
 package com.bigbubble.utils.Model;
 
 public class ApplicationColumn {
-    private String dataType;
-    private boolean incrementValue;
-    private String columnName;
+    private String name;
     private String type;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @Override
     public String toString() {
-        return "ApplicationColumnsModel{" +
-                "dataType='" + dataType + '\'' +
-                ", incrementValue=" + incrementValue +
-                ", columnName='" + columnName + '\'' +
+        return "ApplicationColumn{" +
+                "name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 '}';
-    }
-
-    public String getDataType() {
-        return dataType;
-    }
-
-    public void setDataType(String dataType) {
-        this.dataType = dataType;
-    }
-
-    public boolean isIncrementValue() {
-        return incrementValue;
-    }
-
-    public void setIncrementValue(boolean incrementValue) {
-        this.incrementValue = incrementValue;
-    }
-
-    public String getColumnName() {
-        return columnName;
-    }
-
-    public void setColumnName(String columnName) {
-        this.columnName = columnName;
     }
 
     public String getType() {

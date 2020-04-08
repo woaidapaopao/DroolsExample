@@ -1,13 +1,22 @@
 package com.bigbubble.utils;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import com.bigbubble.utils.JavabeanBuilder.JavaBeanBuilderFromResource;
+import com.bigbubble.utils.Model.ApplicationConfigMapModel;
+import org.junit.Test;
 
-@SpringBootTest
-class UtilsApplicationTests {
+
+public class UtilsApplicationTests {
 
     @Test
-    void contextLoads() {
+    public void contextLoads() {
+        System.out.println( "abc");
     }
 
+    @Test
+    public void TestJsonTools(){
+
+        JavaBeanBuilderFromResource javaBeanBuilderFromResource = new JavaBeanBuilderFromResource();
+        ApplicationConfigMapModel configMapModel = javaBeanBuilderFromResource.getConfigMapModel();
+        configMapModel.getApplicationColumns().forEach(System.out::println);
+    }
 }
