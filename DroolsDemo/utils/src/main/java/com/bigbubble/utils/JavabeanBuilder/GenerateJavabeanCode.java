@@ -25,23 +25,20 @@ public class GenerateJavabeanCode {
                         .append(lineSeparator);
             }
             //无参构造函数
-            javaBeanCode.append("   public ").append(configMapModel.getName()).append("()").append(lineSeparator)
-                    .append("{")
-                    .append(lineSeparator)
-                    .append("}")
-                    .append(lineSeparator);
+            javaBeanCode.append("   public ").append(configMapModel.getName()).append("(){}").append(lineSeparator);
             //构造函数
-            javaBeanCode.append("public ").append(configMapModel.getName()).append("(");
+            javaBeanCode.append("   public ").append(configMapModel.getName()).append("(");
             for(ApplicationColumn column: configMapModel.getApplicationColumns()) {
-                javaBeanCode.append(column.getType()).append(" ").append(column.getName());
+                javaBeanCode.append(column.getType()).append(" ").append(column.getName()).append(",");
             }
+            javaBeanCode.deleteCharAt(javaBeanCode.length()-1);
             javaBeanCode.append(")").append(lineSeparator)
-                    .append("{")
+                    .append("   {")
                     .append(lineSeparator);
             for(ApplicationColumn column: configMapModel.getApplicationColumns()) {
-                javaBeanCode.append("   this.").append(column.getName()).append("=").append(column.getName()).append(";").append(lineSeparator);
+                javaBeanCode.append("       this.").append(column.getName()).append(" = ").append(column.getName()).append(";").append(lineSeparator);
             }
-            javaBeanCode.append("}");
+            javaBeanCode.append("   }").append(lineSeparator);
 
             //get set方法
             for(ApplicationColumn column: configMapModel.getApplicationColumns()) {
@@ -52,14 +49,14 @@ public class GenerateJavabeanCode {
                         .append("       return ").append(fieldName).append(";").append(lineSeparator)
                         .append("   }").append(lineSeparator)
                         .append(lineSeparator);
-                javaBeanCode.append("   public ").append(javaType).append(" set").append(firstUpperCase(fieldName)).append("()").append(lineSeparator)
+                javaBeanCode.append("   public void").append(" set").append(firstUpperCase(fieldName)).append("(").append(javaType).append(" ").append(fieldName).append(")").append(lineSeparator)
                         .append("   {").append(lineSeparator)
-                        .append("       return ").append(fieldName).append(";").append(lineSeparator)
+                        .append("       this.").append(fieldName).append("=").append(fieldName).append(";").append(lineSeparator)
                         .append("   }").append(lineSeparator)
                         .append(lineSeparator);
             }
             javaBeanCode.append("}");
-            File file = new File(targetPath);
+            File file = new File(targetPath,groupId);
             if(!file.exists()){
                 file.mkdirs();
             }
